@@ -2,6 +2,7 @@ OpenInventory() {
   TAB_X := 1565
   TAB_Y := 1005
   Send, {F1}
+  MouseMove, TAB_X, TAB_Y
   Click, TAB_X TAB_Y
 }
 

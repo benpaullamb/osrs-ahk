@@ -13,5 +13,13 @@ CastHighAlch() {
   y := highAlchY + randY
 
   MouseMove, x, y
-  Click, x, y
+  Click, x y
+}
+
+CastSuperheat() {
+  superheatX := 1850
+  superheatY := 890
+
+  MouseMove, superheatX, superheatY
+  Click, superheatX superheatY
 }

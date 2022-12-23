@@ -4,10 +4,18 @@
 
 #IfWinActive, RuneLite - Neb Laup
   MButton::
-    Withdraw(1, 1)
-    CloseBank()
-    Sleep, 1000
-    ForEachItemInInventory(Func("BuryBone"))
+    i := 0
+    While(i < 10) {
+      Withdraw(1, 1)
+      CloseBank()
+      Sleep, 1000
+      ForEachItemInInventory(Func("BuryBone"))
+      MouseMove, 880, 450
+      Sleep, 1000
+      Click, 880 450
+      Sleep, 1000
+      i++
+    }
   return
 
   BuryBone(row, col) {

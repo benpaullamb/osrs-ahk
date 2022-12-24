@@ -13,7 +13,7 @@ ClickInventoryItem(row, col) {
 
 DropInventory(startRow := 1, startCol := 1) {
   Send, {ShiftDown}
-  ForEachItemInInventory(ClickInventoryItem)
+  ForEachItemInInventory(Func("ClickInventoryItem"), startRow, startCol)
   Send, {ShiftUp}
 }
 

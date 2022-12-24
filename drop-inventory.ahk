@@ -3,7 +3,9 @@
 
 #IfWinActive, RuneLite - Neb Laup
   MButton::
+    MouseGetPos, x, y
     DropInventory(1, 1)
+    MouseMove, x, y
   return
 
 #IfWinActive

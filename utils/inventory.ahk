@@ -13,7 +13,7 @@ ClickInventoryItem(row, col) {
 
 DropInventory(startRow := 1, startCol := 1) {
   Send, {ShiftDown}
-  ForEachItemInInventory(Func("ClickInventoryItem"), startRow, startCol)
+  ForEachItemInInventory("ClickInventoryItem", startRow, startCol)
   Send, {ShiftUp}
 }
 
@@ -40,7 +40,9 @@ GetInventoryItemPos(row, col) {
   return { "x": x, "y": y }
 }
 
-ForEachItemInInventory(callback, startRow := 1, startCol := 1) {
+ForEachItemInInventory(callbackName, startRow := 1, startCol := 1, endRow := 7, endCol := 4) {
+  callback := Func(callbackName)
+
   MAX_ROWS := 7
   MAX_COLS := 4
   row := startRow
@@ -50,8 +52,13 @@ ForEachItemInInventory(callback, startRow := 1, startCol := 1) {
     While(col <= MAX_COLS) {
       callback.Call(row, col)
 
+      if(row == endRow and col == endCol) {
+        return
+      }
+
       col++
     }
+
     row++
     col := 1
   }

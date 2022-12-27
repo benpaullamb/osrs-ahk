@@ -9,7 +9,7 @@
       Withdraw(1, 1)
       CloseBank()
       Sleep, 1000
-      ForEachItemInInventory(Func("BuryBone"))
+      ForEachItemInInventory("BuryBone")
       MouseMove, 880, 450
       Sleep, 1000
       Click, 880 450

@@ -17,9 +17,17 @@ CastHighAlch() {
 }
 
 CastSuperheat() {
-  superheatX := 1850
-  superheatY := 890
+  x := 1850
+  y := 890
 
-  MouseMove, superheatX, superheatY
-  Click, superheatX superheatY
+  MouseMove, x, y
+  Click, x y
+}
+
+CastTeleVarrock() {
+  x := 1800
+  y := 830
+
+  MouseMove, x, y
+  Click, x y
 }

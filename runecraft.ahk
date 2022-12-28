@@ -5,6 +5,7 @@
 #IfWinActive, RuneLite - Neb Laup
   MButton::
     ForEachItemInInventory("Runecraft", 1, 3, 4, 3)
+    Sleep, 400
     OpenMagic()
     CastTeleVarrock()
     OpenInventory()

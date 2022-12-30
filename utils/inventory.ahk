@@ -11,6 +11,22 @@ ClickInventoryItem(row, col) {
   Click, pos.x pos.y
 }
 
+RightClickInventoryItem(row, col, option := 0) {
+  pos := GoToInventoryItem(row, col)
+  Click, pos.x pos.y Right
+  if(option !== 0) {
+    Sleep, 300
+    SelectDropdown(option)
+  }
+}
+
+SelectDropdown(option) {
+  MouseGetPos, currentX, currentY
+  y := currentY + 25 + ((option - 1) * 15)
+  MouseMove, currentX, y
+  Click, currentX y
+}
+
 DropInventory(startRow := 1, startCol := 1) {
   Send, {ShiftDown}
   ForEachItemInInventory("ClickInventoryItem", startRow, startCol)

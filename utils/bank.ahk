@@ -13,8 +13,8 @@ ClickBankItem(row, col) {
 }
 
 GetBankItemPos(row, col) {
-  LEFT_X := 650
-  TOP_Y := 125
+  LEFT_X := 655
+  TOP_Y := 130
   COL_DIFF := 50
   ROW_DIFF := 35
 

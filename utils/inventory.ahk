@@ -79,3 +79,44 @@ ForEachItemInInventory(callbackName, startRow := 1, startCol := 1, endRow := 7, 
     col := 1
   }
 }
+
+FindItemInInventory(callbackName, startRow := 1, startCol := 1, endRow := 7, endCol := 4) {
+  callback := Func(callbackName)
+
+  MAX_ROWS := 7
+  MAX_COLS := 4
+  row := startRow
+  col := startCol
+
+  While(row <= MAX_ROWS) {
+    While(col <= MAX_COLS) {
+      condition := callback.Call(row, col)
+
+      if(condition == true) {
+        return { "row": row, "col": col }
+      }
+
+      if(row == endRow and col == endCol) {
+        return
+      }
+
+      col++
+    }
+
+    row++
+    col := 1
+  }
+}
+
+IsItem(row, col) {
+  RightClickInventoryItem(row, col)
+  MouseGetPos, x, y
+  PixelGetColor, colour, x, y + 1, RGB
+  MouseMove, x, y - 50
+  return colour == "0x000000"
+}
+
+GoToNextItem(startRol := 1, startCol := 1) {
+  item := FindItemInInventory("IsItem", startRol, startCol)
+  GoToInventoryItem(item.row, item.col)
+}
